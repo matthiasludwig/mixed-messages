@@ -1,13 +1,22 @@
+const messageService = require('./messageService');
+const userService = require('./userService');
 
-const messages = [
-    'If it hurts, do it more often',
-    'Adding manpower to a late software project makes it later!',
-    'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
-    'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-    'Premature optimization is the root of all evil.',
-    'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
-  ]
+let userChoice = undefined;
 
-  const random = Math.floor(Math.random() * messages.length);
+userService.userFeedback().then((answer) => {
+    userChoice = parseInt(answer);
 
-  console.log(messages[random]);
+    switch (userChoice) {
+        case 1:
+            messageService.getJoke().then((response) => console.log(response.data.joke));
+            break;
+        case 2:
+            messageService.getOpinion().then((response) => console.log(response.data.quotes[0].quote));
+            break;
+        case 3:
+            messageService.getSwanson().then((response) => console.log(response.data[0]));
+            break;
+        default:
+            console.log(`Could not identify the User Choice: ${userChoice}`);
+    }
+});
