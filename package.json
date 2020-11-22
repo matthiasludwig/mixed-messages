@@ -1,0 +1,11 @@
+{
+  "name": "mixed-messages",
+  "version": "1.0.0",
+  "description": "Porfolio Project as part of the CodeCademy fullstack path",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthias Ludwig",
+  "license": "ISC"
+}
